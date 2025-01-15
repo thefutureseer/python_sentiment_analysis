@@ -1,0 +1,5 @@
+fastapi==0.115.6  # For building the API
+uvicorn==0.34.0   # ASGI server for running FastAPI
+transformers==4.48.0  # Hugging Face library for sentiment analysis
+torch==2.2.2  # PyTorch for ML computations
+python-dotenv==1.0.1  # For environment variable management
