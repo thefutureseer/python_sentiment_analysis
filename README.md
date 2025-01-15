@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# Sentiment Analysis App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple web application for performing sentiment analysis on text input. The app has two main components:
 
-## Available Scripts
+1. **Frontend**: Built with React.
+2. **Backend**: Powered by Python, FastAPI, and Hugging Face Transformers.
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Analyze text sentiment (Positive/Negative/Neutral).
+- Confidence score for the sentiment analysis.
+- Interactive and user-friendly UI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `yarn test`
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### General Requirements
 
-### `yarn build`
+- **Node.js** (version 16+)
+- **Python** (version 3.8+)
+- **Virtual Environment** (recommended)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Python Libraries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `fastapi`
+- `uvicorn`
+- `transformers`
+- `pydantic`
+- `pytest` (for testing)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React Libraries
 
-### `yarn eject`
+- `axios`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/thefutureseer/python_sentiment_analysis.git
+cd python_sentiment_analysis
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Backend Setup
 
-## Learn More
+#### Navigate to the backend directory:
+```bash
+cd sentiment-backend
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Create and activate a virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # MacOS/Linux
+venv\Scripts\activate   # Windows
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Install Python dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-### Code Splitting
+#### Run the FastAPI server:
+```bash
+uvicorn main:app --reload
+```
+The backend will start on `http://127.0.0.1:8000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Frontend Setup
 
-### Analyzing the Bundle Size
+#### Navigate to the frontend directory:
+```bash
+cd python_sentiment_analysis [root]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Install Node.js dependencies:
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+#### Start the React development server:
+```bash
+npm start
+```
+The frontend will start on `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Enter text in the input box and click "Analyze Sentiment."
+3. View the sentiment results, including the confidence score.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## File Structure
 
-### `yarn build` fails to minify
+```
+python_sentiment_analysis root directory/
+│
+├── sentiment-backend/       # Backend code (FastAPI)
+│   ├── main.py              # FastAPI entry point
+│   ├── models.py            # Pydantic models
+│   ├── requirements.txt     # Python dependencies
+│   ├── test_main.py         # Unit tests for the backend
+│
+├── # Frontend code (React)
+|-- public
+│── src/
+│   ├── App.js           # Main React component
+│   ├── index.js         # React entry point
+│── package.json         # Node.js dependencies
+│
+└── README.md                # Project documentation
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Running Tests
+
+### Backend Tests
+Ensure your virtual environment is active, then run:
+```bash
+python3 -m unittest test_main.py
+```
+
+### Frontend Tests
+Add tests as needed using your preferred testing framework (e.g., Jest, React Testing Library).
+
+---
+
+## Deployment
+
+### Backend
+- Deploy using services like AWS, Azure, Heroku, or Render.
+
+### Frontend
+- Build the production-ready files using:
+  ```bash
+  npm run build
+  ```
+- Deploy using Vercel, Netlify, or any other static site hosting service.
+
+---
+
+## Future Enhancements
+
+- Add more detailed error handling.
+- Implement support for other languages.
+- Enhance UI with additional features.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+## Acknowledgments
+
+- [FastAPI](https://fastapi.tiangolo.com/) for backend framework.
+- [Hugging Face](https://huggingface.co/) for sentiment analysis models.
+- [React](https://reactjs.org/) for frontend development.
